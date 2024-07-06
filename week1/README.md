@@ -10,19 +10,19 @@
 
 ## SpringBoot 구성 요소
 #### Controller
-+ user의 이벤트를 입력받아 어떤 로직을 실행할 수 있도록 업데이트 해주는 역할
+> user의 이벤트를 입력받아 어떤 로직을 실행할 수 있도록 업데이트 해주는 역할
 #### Service
-* Controller의 요청을 받아 알맞은 정보를 Controller에 재전달
+> Controller의 요청을 받아 알맞은 정보를 Controller에 재전달
 
 #### Repoisitory
-* 데이터 저장소
+> 데이터 저장소
 
 #### Entity
-* 테이블 = Entity & 각 행 = Entity 객체
+> 테이블 = Entity & 각 행 = Entity 객체
 
 #### Annotation
 > ##### @Controller
->> 하기 객체사 Controller임을 명시
+>> 하기 객체가 Controller임을 명시
 
 > ##### @GetMapping
 >> 요청이 들어온 서버와 일치하는 메소드 실행
@@ -48,10 +48,10 @@
 
 ## SpringBoot 실습 준비
 1. 에디터 설치
-* IntelliJ 설치해주기 (Community ver.) - <https://www.jetbrains.com/ko-kr/idea/>
+    > IntelliJ 설치해주기 (Community ver.) - <https://www.jetbrains.com/ko-kr/idea/>
 
 2. Spring initializr 페이지에서 프로젝트 생성(Generate) <start.spring.io>
-* Maven, Java, Dependencies (Spring Web) 추가 후 생성
+    > Maven, Java, Dependencies (Spring Web) 추가 후 생성
 
 3. IntelliJ에서 프로젝트 open
 
