@@ -10,12 +10,13 @@ public class FirstController {
 
     @GetMapping("/hi")
     public String greetUser(Model model){
+        // "username"이라는 변수에 "Lee"값 전달 후 greeting.mustache 뷰 호출
         model.addAttribute("username", "Lee");
         return "greeting";
     }
 
     @GetMapping("/bye")
-    public String sendingUser(Model model) {
+    public String byeUser(Model model) {
         model.addAttribute("username", "Lee");
         return "goodbye";
     }
