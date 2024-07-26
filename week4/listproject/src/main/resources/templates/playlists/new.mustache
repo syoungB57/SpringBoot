@@ -1,0 +1,15 @@
+{{>layouts/header}}
+
+<form class="container" action="/playlist/create" method="post">
+    <div class="mb-3">
+        <label class="form-label">가수</label>
+        <input type="text" class="form-control" name="artist">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">노래</label>
+        <textarea class="form-control" rows="1" name="song"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
+
+{{>layouts/footer}}
