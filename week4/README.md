@@ -9,7 +9,7 @@
     c. DB 생성 - DB명(playlistdb)
 ### 3) DBeaver 설치 후 PostgreSQL 연결
     a. Host : localhost
-    b. Database : playlistdb
+    b. Database : listdb
     c. password 입력 후 연결
 
 ---
@@ -26,16 +26,21 @@
 		</dependency>
 ### 2) application.properties에 datasource 정보 기재
     a. spring.datasource.jdbcUrl=jdbc:postgresql://[주소:포트/db이름]
-    b. 주소 - localhost / port - 5432 / pw - **** / db 이름 - playlistdb
-    spring.datasource.jdbcUrl=jdbc:postgresql://localhost:5432/playlistdb
+    b. 주소 - localhost / port - 5432 / pw - **** / db 이름 - listdb
+    spring.datasource.url=jdbc:postgresql://localhost:5432/listdb
     spring.datasource.username=postgres
     spring.datasource.password=****
     spring.datasource.platform=postgres
-### 3) junit으로 db 연결되었나 확인
-    a. junit dependency pom.xml에 추가
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.13.2</version>
-		</dependency>
-    b. PostgreSQLConnectionTest에서 SQL 구문 실행해보기
+
+### 3) application.properties에 JPA 설정
+	a.ddl-auto options
+		- create : 엔티티 호출 시, 테이블 생성 (playlist1, playlist2, ...)
+  		- createdrop : 테이블 있으면 삭제 후 생성
+		- update : 테이블 있으면 데이터 적재 / 없으면 생성
+  	b. format_sql : sql문 보기 좋게 수정 후 출력 여부
+   	c. show-sql : sql문 출력 여부
+	spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+	spring.jpa.hibernate.ddl-auto=update
+	spring.jpa.properties.hibernate.format_sql=true 
+	spring.jpa.properties.hibernate.show-sql=true
+	spring.jpa.properties.hibernate.use_sql_comments=false
