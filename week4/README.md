@@ -44,3 +44,44 @@
 	spring.jpa.properties.hibernate.format_sql=true 
 	spring.jpa.properties.hibernate.show-sql=true
 	spring.jpa.properties.hibernate.use_sql_comments=false
+---
+## 3. API용 클래스 생성
+![image](https://github.com/user-attachments/assets/208ae97d-7ab2-4b58-8723-4140e68d8ac6)
+	
+### 1) entity
+	a. primary key가 될 id 컬럼과 다른 컬럼들 선언
+
+### 2) repository
+	a. 기본적인 method를 사용하기 위해 extends JpaRepository<PlayList, Long>
+ 	- PlayList : Entity
+  	- Long : id
+
+### 3) service (Important)
+#### Api에서 사용될 method 선언
+	a. getPlayList()
+ 	- entity 전체 조회 (findAll())
+  
+ 	b. getSongById(final Long id)
+  	- PK(id)로 하나의 데이터 조회 (findById(id))
+   
+	c. createPlayList(PlayList playList)
+ 	- 전달받은 json 형식의 데이터를 entity에 저장 (save(playList)) 
+  
+	d. updatePlayList(final Long id, final PlayList updateSong)
+ 	- PK(id)로 데이터 조회 후, 수정 (
+        PlayList playList = getSongById(id);
+        playList.setArtist(updateSong.getArtist());
+        playList.setSong(updateSong.getSong());
+		
+	e. deleteSongById(final Long id)
+ 	- PK(id)로 데이터 삭제 (deleteById(id))
+
+### 4) api
+	a. RestController 선언 (@RestController)
+ 	b. 요청 받을 url 선언 (@RequestMapping("/playlists")
+  	c. 위 이미지대로 GET/POST/PUT/DELETE Mapping 
+   	d. service에서 선언한 method 호출/사용
+
+
+
+	
