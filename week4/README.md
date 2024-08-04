@@ -94,5 +94,24 @@
   	c. POST 할 때, 필수 데이터 누락됐을 때 - 'artist'나 'song' 컬럼 데이터가 빠진 경우
    	@ExceptionHandler(PropertyValueException.class)
 
+---
+## 5. 유효성 검증 (시간이 부족하여 5주차에 조금 더 자세히 공부/개발...)
+### 1) pom.xml 수정
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-validation</artifactId>
+	</dependency>
 
-	
+### 2) 유효성 검증할 method에 어노테이션 추가
+	a. PostMapping에 @@Valid 추가
+	public PlayList createPlayList(@Valid @RequestBody PlayList playList)
+
+### 3) 유효성 검증 규칙을 entity에 추가 (예시)
+	a. artist 컬럼에 2글자 이상 입력
+ 	@Size(min = 2, message = "Artist Name should have at least 2 characters")
+    
+### 4) 유효성 검증 실패 시, Exception 처리
+	a. 유효성 검증 실패 시, HttpResponse Code는 400 (HttpStatus.BAD_REQUEST)
+ 	b. MethodArgumentNotValidException 발생
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
