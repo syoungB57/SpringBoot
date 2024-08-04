@@ -82,6 +82,17 @@
   	c. 위 이미지대로 GET/POST/PUT/DELETE Mapping 
    	d. service에서 선언한 method 호출/사용
 
+---
+## 4. Exception 처리
+### 1) ExceptionControllerAdvice
+	a. RestController에서 발생하는 exception 처리한다고 명시 (@RestControllerAdvice)
+ 
+  	b. GET, PUT에서 전달받은 id 값에 해당하는 데이터가 없을 때 - 요청에 문제가 있어 서버에서 인식 불가 (HttpStatus.BAD_REQUEST)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(IllegalArgumentException.class)
+	
+  	c. POST 할 때, 필수 데이터 누락됐을 때 - 'artist'나 'song' 컬럼 데이터가 빠진 경우
+   	@ExceptionHandler(PropertyValueException.class)
 
 
 	
