@@ -1,4 +1,4 @@
-# playlistproject 참고
+# playlistproject
 ## 1. Local DB 설치 (DBeaver & PostgreSQL 사용)
 ### 1) PostgreSQL 설치 (password 꼭 기억하기)
 <https://www.enterprisedb.com/downloads/postgres-postgresql-downloads>
